@@ -22,7 +22,7 @@ TAU = 8e-3              # for soft update of target parameters
 OU_SIGMA = 0.2          # Ornstein-Uhlenbeck noise parameter, volatility
 OU_THETA = 0.15         # Ornstein-Uhlenbeck noise parameter, speed of mean reversion
 EPS_START = 5.0         # initial value for epsilon in noise decay process in Agent.act()
-EPS_EP_END = 300        # episode to end the noise decay process
+EPS_END = 300        # episode to end the noise decay process
 EPS_FINAL = 0           # final value for epsilon after decay
 
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
@@ -46,7 +46,7 @@ class Agent():
         self.num_agents = num_agents
         self.seed = random.seed(random_seed)
         self.eps = EPS_START
-        self.eps_decay = 1/(EPS_EP_END*LEARN_NUM)  # set decay rate based on epsilon end target
+        self.eps_decay = 1/(EPS_END*LEARN_NUM)  # set decay rate based on epsilon end target
         self.timestep = 0
 
         # Actor Network (w/ Target Network)
