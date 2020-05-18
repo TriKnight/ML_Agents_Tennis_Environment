@@ -14,3 +14,6 @@ The task is episodic, and in order to solve the environment, your agents must ge
 - This yields a single **score** for each episode.
 
 The environment is considered solved, when **the average (over 100 episodes) of those scores is at least +0.5**.
+
+## 3. References
+- [Multi-Agent Actor-Critic for Mixed Cooperative-Competitive Environments](https://arxiv.org/pdf/1706.02275.pdf)
