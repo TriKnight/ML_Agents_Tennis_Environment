@@ -1,4 +1,5 @@
 # ML_Agents_Tennis_Environment
+![Tennis](misc/Tennis_envi.gif)
 ## 1. Setup Environment and Install Requirements 
 The Project use the MLAngents version 0.4.0 so we need to do some following steps
 ### 1.1 Install Anaconda & Create virtual environment using conda
@@ -51,7 +52,7 @@ jupyter notebook
 
 
 ## 2. Unity Tennis Enviroment
-![Tennis](misc/Tennis_envi.gif)
+
 
 In this environment, two agents control rackets to bounce a ball over a net. If an agent hits the ball over the net, it receives a reward of +0.1. If an agent lets a ball hit the ground or hits the ball out of bounds, it receives a reward of -0.01. Thus, the goal of each agent is to keep the ball in play.
 
