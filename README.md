@@ -78,7 +78,7 @@ You need only select the environment that matches your operating system:
     
 ## 3. Multi-Agent Deep Deterministic Policy Gradient (MADDPG)
 The environment contains 2 agents who are playing tennis.  The MADDPG Algorithms is a framework of centralized training with decentralized execution. The MADDPG allow multi-agents can learn to compete and collaborate each other. 
-
+![MADDPG Algorithms](https://github.com/TriKnight/ML_Agents_Tennis_Environment/blob/master/misc/MADDPG.png)
 In the diagram show the Overview of our multi-agent decentralized actor, centralized critic approach. Each Agent in the MADDPG is an “actor” and each actor get advice from a “crittic” that help “actor” decide the actions during the training time. All the agents do not need to access the central critic at the test time, they action based on their observation combined with their predictions of other agents behaviors.
 
 Decentralized execution is when each Agent has its own private Actor network and takes actions when observing the environment.
