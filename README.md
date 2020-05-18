@@ -29,10 +29,10 @@ pip install -e .
 
 # git clone DQN_Navigation_Project
 cd ..
-https://github.com/TriKnight/Reacher_Continuous_Control
+https://github.com/TriKnight/ML_Agents_Tennis_Environment
 
 # install the requirements from our package
-cd Reacher_Continuous_Control
+cd ML_Agents_Tennis_Environment
 pip install -r requirements.txt
 
 ```
