@@ -78,16 +78,18 @@ You need only select the environment that matches your operating system:
     
 ## 3. Multi-Agent Deep Deterministic Policy Gradient (MADDPG)
 The environment contains 2 agents who are playing tennis.  The MADDPG Algorithms is a framework of centralized training with decentralized execution. The MADDPG allow multi-agents can learn to compete and collaborate each other. 
+
 ![MADDPG Algorithms](https://github.com/TriKnight/ML_Agents_Tennis_Environment/blob/master/misc/MADDPG.png)
+
 In the diagram show the Overview of our multi-agent decentralized actor, centralized critic approach. Each Agent in the MADDPG is an “actor” and each actor get advice from a “crittic” that help “actor” decide the actions during the training time. All the agents do not need to access the central critic at the test time, they action based on their observation combined with their predictions of other agents behaviors.
 
-Decentralized execution is when each Agent has its own private Actor network and takes actions when observing the environment.
+**Decentralized execution** is when each Agent has its own private Actor network and takes actions when observing the environment.
 
-Central Learning is each agent's own private Critic Network, the Critic Network of each Agent has full visibility on the environment. It not only takes action and observation of a particular agent, it also takes all the observations and actions of all other agents.  The output of the Critic Network is still the Q value estimated given a full observation input (all agents) and a full action input(all agents).  The Critic Network is only active in the training time and disable in the running time.
+**Central Learning** is each agent's own private Critic Network, the Critic Network of each Agent has full visibility on the environment. It not only takes action and observation of a particular agent, it also takes all the observations and actions of all other agents.  The output of the Critic Network is still the Q value estimated given a full observation input (all agents) and a full action input(all agents).  The Critic Network is only active in the training time and disable in the running time.
 
-Experience Storage is storing all states, actions, reward, next states, collected during interaction of environment.
+**Experience Storage** is storing all states, actions, reward, next states, collected during interaction of environment.
 
-Explorations and noise decay I use the  Ornstein–Uhlenbeck  seems to be the best algorithm to add noise. However,  the common failure mode of the DDPG is the learner to overestimate Q-value then the policy breaking, the scores result get good at the beginning but at the end, this will reduce dramatically. Because it exploits the errors in the Q-function.So, That means, I add noise decay to the target action and make the agent hard to exploit the error in the Q-function  by smoothing out Q along changes action.
+**Explorations and noise decay** I use the  Ornstein–Uhlenbeck  seems to be the best algorithm to add noise. However,  the common failure mode of the DDPG is the learner to overestimate Q-value then the policy breaking, the scores result get good at the beginning but at the end, this will reduce dramatically. Because it exploits the errors in the Q-function.So, That means, I add noise decay to the target action and make the agent hard to exploit the error in the Q-function  by smoothing out Q along changes action.
 
 ## 4. References
 - [Multi-Agent Actor-Critic for Mixed Cooperative-Competitive Environments](https://arxiv.org/pdf/1706.02275.pdf)
