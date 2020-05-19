@@ -91,7 +91,36 @@ In the diagram show the Overview of our multi-agent decentralized actor, central
 
 **Explorations and noise decay** I use the  Ornstein–Uhlenbeck  seems to be the best algorithm to add noise. However,  the common failure mode of the DDPG is the learner to overestimate Q-value then the policy breaking, the scores result get good at the beginning but at the end, this will reduce dramatically. Because it exploits the errors in the Q-function.So, That means, I add noise decay to the target action and make the agent hard to exploit the error in the Q-function  by smoothing out Q along changes action.
 
-## 4. References
+
+## Discussion: 
+
+Some hyperparameters most effective to the DDPG (Deep Deterministic Policy Gradient) Algorithms are: 
+
+- Gamma (discount rate) if the discount rate =0.99 and 0.98 the agent gets a good result . With all experiments below we can choose the GAMMA =0.98 to get the best result.
+
+- The replay buffer_size will affect the experiments of the agent . The best choose of BUFFER_SIZE = 1e5 , which is the agent will learning more stable than BUFFER_SIZE = 1e6
+
+- The best option of the Learning Rate, LR_ACTOR =1e-3 and LR_CRITIC=1e-3 when increasing and decreasing the learning rate,  the Agent can not get stable rewards.
+
+- Add the Noise decay in the  OU noise. That means, OU noise will reduce over time. It has a good effect on the training model, so I add the EPS DECAY in 600 episodes, with initial  EPS value =5.0 and EPS final value is 0.
+
+The best experiment can solved environment in 852 episodes  with Parameters following:
+```
+BUFFER_SIZE = int(1e6)  # replay buffer size
+BATCH_SIZE = 128        # minibatch size
+LR_ACTOR = 1e-3         # learning rate of the actor
+LR_CRITIC = 1e-3       # learning rate of the critic
+WEIGHT_DECAY = 0        # L2 weight decay
+GAMMA = 0.98           # discount factor
+TAU = 10e-3              # for soft update of target parameters
+OU_SIGMA = 0.2          # Ornstein-Uhlenbeck noise parameter, volatility
+OU_THETA = 0.15         # Ornstein-Uhlenbeck noise parameter, speed of mean reversion
+EPS_START = 5.0         # initial value for epsilon in noise decay process in Agent.act()
+EPS_END = 600        # episode to end the noise decay process
+EPS_FINAL = 0           # final value for epsilon after decay
+```
+
+## 5. References
 - [Multi-Agent Actor-Critic for Mixed Cooperative-Competitive Environments](https://arxiv.org/pdf/1706.02275.pdf)
 - [Open AI](https://openai.com/blog/learning-to-cooperate-compete-and-communicate/)
 - [Medium Markus Buchholz](https://medium.com/@markus.x.buchholz/deep-reinforcement-learning-deep-deterministic-policy-gradient-ddpg-algoritm-5a823da91b43)
